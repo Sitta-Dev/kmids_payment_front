@@ -33,7 +33,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-box-multiple"
-                        label="First Name"
+                        label="Student first name/ชื่อนักเรียน"
                         type="text"
                         v-model="stud_first_name"
                         outlined
@@ -43,7 +43,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-box-multiple-outline"
-                        label="Last Name"
+                        label="Student last name/นามสกุลนักเรียน"
                         type="text"
                         v-model="stud_last_name"
                         outlined
@@ -53,7 +53,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-badge-horizontal"
-                        label="Ref ID"
+                        label="Personal ID/เลขบัตรประชาชน 13 หลัก"
                         type="text"
                         v-model="stud_grade"
                         outlined
@@ -74,7 +74,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-box-multiple"
-                        label="First Name"
+                        label="Father first name/ชื่อบิดา"
                         type="text"
                         v-model="fathers_first_name"
                         outlined
@@ -84,7 +84,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-box-multiple-outline"
-                        label="Last Name"
+                        label="Father last name/นามสกุลบิดา"
                         type="text"
                         v-model="fathers_last_name"
                         outlined
@@ -94,7 +94,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-badge-horizontal"
-                        label="Ref ID"
+                        label="Personal ID/เลขบัตรประชาชน 13 หลัก"
                         type="text"
                         v-model="fathers_id"
                         outlined
@@ -104,7 +104,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-phone"
-                        label="Number Phone"
+                        label="ระบุเบอร์โทรศัพท์ติดต่อกลับ"
                         type="text"
                         v-model="fathers_phone"
                         outlined
@@ -114,7 +114,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-email"
-                        label="Email"
+                        label="ระบุ E-Mail สำหรับติดต่อกลับ"
                         type="text"
                         v-model="fathers_email"
                         outlined
@@ -129,7 +129,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-box-multiple"
-                        label="First Name"
+                        label="Mother first name/ชื่อมารดา"
                         type="text"
                         v-model="mothers_first_name"
                         outlined
@@ -139,7 +139,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-box-multiple-outline"
-                        label="Last Name"
+                        label="Mother last name/นามสกุลมารดา"
                         type="text"
                         v-model="mothers_last_name"
                         outlined
@@ -149,7 +149,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-badge-horizontal"
-                        label="Ref ID"
+                        label="Personal ID/เลขบัตรประชาชน 13 หลัก"
                         type="text"
                         v-model="mothers_id"
                         outlined
@@ -159,7 +159,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-phone"
-                        label="Number Phone"
+                        label="ระบุเบอร์โทรศัพท์ติดต่อกลับ"
                         type="text"
                         v-model="mothers_phone"
                         outlined
@@ -169,7 +169,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-email"
-                        label="Email"
+                        label="ระบุ E-Mail สำหรับติดต่อกลับ"
                         type="text"
                         v-model="mothers_email"
                         outlined
@@ -187,7 +187,7 @@
                       <v-text-field
                         prepend-icon="mdi-calendar-month-outline"
                         name="datepay"
-                        label="วันที่จ่ายเงิน อ้างอิงจากหลักฐาน"
+                        label="Date pay/วันที่จ่ายเงิน"
                         type="date"
                         v-model="foundation_datepay"
                         outlined
@@ -198,7 +198,7 @@
                       <v-text-field
                         prepend-icon="mdi-alarm"
                         name="timepay"
-                        label="เวลาจ่ายเงิน ex.09.30 น."
+                        label="Time pay/เวลาที่่จ่ายเงิน ex.09.30 น."
                         type="text"
                         v-model="foundation_timepay"
                         outlined
@@ -208,7 +208,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-account-cash"
-                        label="Amount"
+                        label="Amount/ยอดเงินที่จ่าย"
                         type="text"
                         v-model="foundation_amount"
                         prefix="฿"
@@ -219,7 +219,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-pencil-outline"
-                        label="หมายเหตุ"
+                        label="Remarks/หมายเหตุ"
                         type="text"
                         v-model="foundation_refid1"
                         outlined
@@ -244,13 +244,13 @@
                       >
                         <v-icon left>mdi-camera</v-icon>upload image
                       </v-btn>
-                      <p>file name: {{ nameimg }}</p>
+                      <p>File name/แนบเอกสารชำระเงิน : {{ nameimg }}</p>
                     </v-col>
                   </v-row>
 
                   <v-card-actions>
                     <v-col class="text-center" cols="12" sm="12" md="12">
-                      <v-btn color="#2e3192" dark @click="anyactivity">ส่งหลักฐานค่าเทอม</v-btn>
+                      <v-btn color="#2e3192" dark @click="anyactivity">ส่งหลักฐานการชำระเงิน</v-btn>
                     </v-col>
                   </v-card-actions>
                 </form>
@@ -333,7 +333,7 @@ export default {
     onfileimgChange(event) {
       this.imgexam = event.target.files[0];
       this.nameimg = event.target.files[0].name;
-      // console.log(event.target.files[0]);
+      // console.log("imgexam : ", event.target.files[0]);
     },
     async anyactivity() {
       let fd = new FormData();
@@ -357,14 +357,21 @@ export default {
       fd.append("foundation_timepay", this.foundation_timepay);
       fd.append("foundation_amount", this.foundation_amount);
       fd.append("foundation_refid1", this.foundation_refid1);
-      fd.append("imgexam", this.imgexam, this.imgexam.name);
+
+      let dup = await anyactivity.autoGenFileName({ refId: this.stud_grade });
+
+      let idx = this.imgexam.name.lastIndexOf(".");
+      const file_type = idx < 1 ? "" : this.imgexam.name.substr(idx + 1);
+
+      const genName = `${dup.data.data}.${file_type}`;
+      fd.append("imgexam", this.imgexam, genName);
 
       const response = await anyactivity.anyactivityNewStudform(fd);
       if (response.data.success) {
         confirm("บันทึกข้อมูลเรียบร้อยแล้วคะ");
-        // this.$router.push({
-        //   name: "invoiceparent",
-        // });
+        this.$router.push({
+          name: "loginparent",
+        });
       } else {
         confirm("เกิดข้อผิดพลาดกรุณาตรวจสอบใหม่อีกครั้งคะ");
       }

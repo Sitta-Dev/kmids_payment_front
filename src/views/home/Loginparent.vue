@@ -45,7 +45,7 @@
 
             <v-card-actions>
               <v-spacer />
-              <a @click="onClickNewStud()">Link >> แนบข้อมูลการชำระเงินสำหรับนักเรียนใหม่</a>
+              <a @click="onClickNewStud()">Link >> For New Students</a>
             </v-card-actions>
 
             <v-card-actions>
@@ -118,8 +118,7 @@ export default {
     },
     onClickNewStud() {
       const routeData = this.$router.resolve({
-        name: "paymentCheckNewStud",
-        // query: { data: "someData" },
+        name: "paymentCheckNewStud"
       });
       window.open(routeData.href, "_blank");
     },
