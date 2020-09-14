@@ -19,11 +19,7 @@
               <v-spacer />
             </v-toolbar>
             <v-card-text>
-              <v-form
-                ref="form"
-                v-model="validate"
-                lazy-validation
-              >
+              <v-form ref="form" v-model="validate" lazy-validation>
                 <v-text-field
                   label="Student ID"
                   name="email"
@@ -46,10 +42,15 @@
                 />
               </v-form>
             </v-card-text>
+
             <v-card-actions>
               <v-spacer />
-              <v-btn color="#2e3192" v-on:click.native="test()" dark
-                >Login</v-btn>
+              <a @click="onClickNewStud()">Link >> แนบข้อมูลการชำระเงินสำหรับนักเรียนใหม่</a>
+            </v-card-actions>
+
+            <v-card-actions>
+              <v-spacer />
+              <v-btn color="#2e3192" v-on:click.native="test()" dark>Login</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -70,14 +71,14 @@ export default {
       email: "",
       password: "",
       PassRules: [
-        v => !!v || "Citizen ID is required",
-        v => v.length <= 13 || "Citizen ID must be less than 13 characters"
+        (v) => !!v || "Citizen ID is required",
+        (v) => v.length <= 13 || "Citizen ID must be less than 13 characters",
       ],
       error: null,
       emailRules: [
-        v => !!v || "Sutdent ID is required",
-        v => v.length <= 7 || "Sutdent ID must be less than 7 characters"
-      ]
+        (v) => !!v || "Sutdent ID is required",
+        (v) => v.length <= 7 || "Sutdent ID must be less than 7 characters",
+      ],
     };
   },
   methods: {
@@ -87,37 +88,42 @@ export default {
     },
     async test() {
       try {
-         await Login.Loginparent({
+        await Login.Loginparent({
           studentid: this.email,
-          parentid: this.password
-        }).then(response=>{
+          parentid: this.password,
+        }).then((response) => {
           // console.log(response);
-        if (response.data.success) {
-          this.$store.dispatch("setToken", response.data.token);
-          this.$store.dispatch("setstudentid", response.data.data.studentid);
-          this.$store.dispatch(
-            "setstudant_name",
-            response.data.data.studant_name
-          );
-          this.$store.dispatch("setgrade", response.data.data.grade);
-          this.$store.dispatch(
-            "setparent_name",
-            response.data.data.parent_name
-          );
-          this.$router.push({
-            name: "invoiceparent"
-          });
-        } else {
-          return confirm("กรุณาลองใหม่อีกครั้งค่ะ  " + response.data.message);
-        }
-        
+          if (response.data.success) {
+            this.$store.dispatch("setToken", response.data.token);
+            this.$store.dispatch("setstudentid", response.data.data.studentid);
+            this.$store.dispatch(
+              "setstudant_name",
+              response.data.data.studant_name
+            );
+            this.$store.dispatch("setgrade", response.data.data.grade);
+            this.$store.dispatch(
+              "setparent_name",
+              response.data.data.parent_name
+            );
+            this.$router.push({
+              name: "invoiceparent",
+            });
+          } else {
+            return confirm("กรุณาลองใหม่อีกครั้งค่ะ  " + response.data.message);
+          }
         });
-        
       } catch (error) {
         this.error = error.response.data.error;
       }
-    }
-  }
+    },
+    onClickNewStud() {
+      const routeData = this.$router.resolve({
+        name: "paymentCheckNewStud",
+        // query: { data: "someData" },
+      });
+      window.open(routeData.href, "_blank");
+    },
+  },
 };
 </script>
 

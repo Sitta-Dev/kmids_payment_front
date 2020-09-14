@@ -1,10 +1,7 @@
 <template>
   <div class="paymentcheck">
     <v-container>
-      <v-row
-        wrap
-        class="flex text-xs-center xs12 sm10 md9 lg9 xl7 offset-md1 mx-auto"
-      >
+      <v-row wrap class="flex text-xs-center xs12 sm10 md9 lg9 xl7 offset-md1 mx-auto">
         <v-col cols="12" sm="12" md="12">
           <v-card class="mx-auto">
             <v-card-text>
@@ -20,27 +17,15 @@
                   />
                 </v-col>
                 <v-col cols="12" sm="12" md="12">
-                  <p class="headline text--primary text-center">
-                    Bank Transfer
-                  </p>
-                  <p class="display-1 text--primary text-center">
-                    Account Number: 088-3-00580-5
-                  </p>
-                  <p class="title text--primary text-center">
-                    Account Name: KMITL International Demonstration School
-                  </p>
-                  <p class="title text--primary text-center">
-                    Siam Commercial Bank (SCB)
-                  </p>
-                  <p class="title text--primary ">
-                    Invoice No.: {{invoiceno}}
-                  </p>
-                  <p class="title text--primary ">
-                    Subject: {{subject}}
-                  </p>
-                  <p class="title text--primary ">
-                    Description: {{detail}}
-                  </p>
+                  <p class="headline text--primary text-center">Bank Transfer</p>
+                  <p class="display-1 text--primary text-center">Account Number: 088-3-00580-5</p>
+                  <p
+                    class="title text--primary text-center"
+                  >Account Name: KMITL International Demonstration School</p>
+                  <p class="title text--primary text-center">Siam Commercial Bank (SCB)</p>
+                  <p class="title text--primary">Invoice No.: {{invoiceno}}</p>
+                  <p class="title text--primary">Subject: {{subject}}</p>
+                  <p class="title text--primary">Description: {{detail}}</p>
                 </v-col>
               </v-row>
 
@@ -100,8 +85,7 @@
                       type="date"
                       v-model="datepay"
                       outlined
-                    >
-                    </v-text-field>
+                    ></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
@@ -111,8 +95,7 @@
                       type="text"
                       v-model="timepay"
                       outlined
-                    >
-                    </v-text-field>
+                    ></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
@@ -141,7 +124,7 @@
                       color="success"
                       @click="$refs.fileInput.click()"
                     >
-                      <v-icon left>mdi-camera</v-icon> upload image
+                      <v-icon left>mdi-camera</v-icon>upload image
                     </v-btn>
                     <p>file name: {{ nameimg }}</p>
                   </v-col>
@@ -160,9 +143,7 @@
                   <v-btn color="orange darken-2 mx-2" dark to="/invoiceparent">
                     <v-icon dark left>mdi-arrow-left</v-icon>back
                   </v-btn>
-                  <v-btn color="#2e3192" dark @click="anyactivity">
-                    submit
-                  </v-btn>
+                  <v-btn color="#2e3192" dark @click="anyactivity">submit</v-btn>
                 </v-card-actions>
               </form>
             </v-card-text>
@@ -287,7 +268,7 @@ export default {
   },
 
   watch: {
-    amount: function(val) {
+    amount: function (val) {
       const temp = val.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       this.amount = temp;
     },

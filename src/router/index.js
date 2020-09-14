@@ -237,12 +237,15 @@ const routes = [
     name: 'loginparent',
     component: () => import('../views/home/Loginparent.vue'),
   },
-
-
+  {
+    path: '/paymentCheckNewStud',
+    name: 'paymentCheckNewStud',
+    component: () => import('../views/home/payment/paymentCheckNewStud.vue')
+  },
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash', //history
   base: process.env.BASE_URL,
   routes
 })

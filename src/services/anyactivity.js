@@ -6,6 +6,12 @@ export default{
           }
         return Api().post('apis/anyactivity/anyactivityform',credentials,config)
     },
+    anyactivityNewStudform(credentials,token){
+      let config = {
+          headers: { 'Authorization': 'bearer ' + token }
+        }
+      return Api().post('apis/anyactivity/anyactivityNewStudform',credentials,config)
+  },
     getdataanyactivity(token){
         let config = {
             headers: { 'Authorization': 'bearer ' + token }

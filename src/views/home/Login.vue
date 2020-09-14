@@ -44,9 +44,7 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer />
-              <v-btn color="#2e3192" v-on:click.native="validate" dark
-                >Login</v-btn
-              >
+              <v-btn color="#2e3192" v-on:click.native="validate" dark>Login</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -66,12 +64,12 @@ export default {
     return {
       email: "",
       password: "",
-      PassRules: [v => !!v || "Password is required"],
+      PassRules: [(v) => !!v || "Password is required"],
       error: null,
       emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@kmids.ac.th+/.test(v) || "E-mail must be valid"
-      ]
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@kmids.ac.th+/.test(v) || "E-mail must be valid",
+      ],
     };
   },
   methods: {
@@ -80,7 +78,7 @@ export default {
         this.snackbar = true;
         const fdloin = {
           email: this.email,
-          password: this.password
+          password: this.password,
         };
         const response = await Login.Login(fdloin);
         // console.log(response.data);
@@ -91,18 +89,21 @@ export default {
           this.$store.dispatch("setusername", response.data.data.username);
           this.$store.dispatch("setRole", response.data.data.role);
         }
-        if (response.data.data.role === "admin" || response.data.data.role === "finance") {
+        if (
+          response.data.data.role === "admin" ||
+          response.data.data.role === "finance"
+        ) {
           this.$router.push({
-            name: "panel"
+            name: "panel",
           });
         }
         if (response.data.data.role === "admission") {
           this.$router.push({
-            name: "admissiondas"
+            name: "admissiondas",
           });
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
