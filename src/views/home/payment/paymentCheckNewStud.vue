@@ -19,7 +19,7 @@
                   </v-col>
 
                   <v-col cols="12" sm="12" md="12">
-                    <p class="headline text--primary text-center">Payment New Admission</p>
+                    <p class="headline text--primary text-center">Payment Platform for New Admission</p>
                   </v-col>
                 </v-row>
 
@@ -27,7 +27,7 @@
                   <!-- สำหรับนักเรียน -->
                   <v-row>
                     <v-col cols="12" sm="12" md="12">
-                      <p class="headline text--primary text-left">สำหรับนักเรียน</p>
+                      <p class="headline text--primary text-left">Applying Students</p>
                     </v-col>
 
                     <v-col cols="12" sm="6" md="4">
@@ -63,12 +63,12 @@
                   <!-- สำหรับผู้ปกครอง -->
                   <v-row>
                     <v-col cols="12" sm="12" md="12">
-                      <p class="headline text--primary text-left">สำหรับผู้ปกครอง</p>
+                      <p class="headline text--primary text-left">Applying Parents</p>
                     </v-col>
 
                     <!-- บิดา -->
                     <v-col cols="12" sm="12" md="12">
-                      <h3 class="text-left">บิดา</h3>
+                      <h3 class="text-left">Father / บิดา</h3>
                     </v-col>
 
                     <v-col cols="12" sm="6" md="4">
@@ -104,7 +104,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-phone"
-                        label="ระบุเบอร์โทรศัพท์ติดต่อกลับ"
+                        label="Mobile number / เบอร์โทรศัพท์"
                         type="text"
                         v-model="fathers_phone"
                         outlined
@@ -114,7 +114,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-email"
-                        label="ระบุ E-Mail สำหรับติดต่อกลับ"
+                        label="E-Mail Address"
                         type="text"
                         v-model="fathers_email"
                         outlined
@@ -123,7 +123,7 @@
 
                     <!-- มารดา -->
                     <v-col cols="12" sm="12" md="12">
-                      <h3 class="text-left">มารดา</h3>
+                      <h3 class="text-left">Mother / มารดา</h3>
                     </v-col>
 
                     <v-col cols="12" sm="6" md="4">
@@ -159,7 +159,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-phone"
-                        label="ระบุเบอร์โทรศัพท์ติดต่อกลับ"
+                        label="Mobile number / เบอร์โทรศัพท์"
                         type="text"
                         v-model="mothers_phone"
                         outlined
@@ -169,7 +169,7 @@
                     <v-col cols="12" sm="6" md="4">
                       <v-text-field
                         prepend-icon="mdi-email"
-                        label="ระบุ E-Mail สำหรับติดต่อกลับ"
+                        label="E-Mail Address"
                         type="text"
                         v-model="mothers_email"
                         outlined
@@ -180,7 +180,7 @@
                   <!-- ข้อมูลการชำระเงิน -->
                   <v-row>
                     <v-col cols="12" sm="12" md="12">
-                      <p class="headline text--primary text-left">ข้อมูลการชำระเงิน</p>
+                      <p class="headline text--primary text-left">Payment Details / ข้อมูลการชำระเงิน</p>
                     </v-col>
 
                     <v-col cols="12" sm="6" md="4">
@@ -358,20 +358,20 @@ export default {
       fd.append("foundation_amount", this.foundation_amount);
       fd.append("foundation_refid1", this.foundation_refid1);
 
-      let dup = await anyactivity.autoGenFileName({ refId: this.stud_grade });
+      let autoGen = await anyactivity.autoGenFileName({ refId: this.stud_grade });
 
       let idx = this.imgexam.name.lastIndexOf(".");
       const file_type = idx < 1 ? "" : this.imgexam.name.substr(idx + 1);
 
-      const genName = `${dup.data.data}.${file_type}`;
+      const genName = `${autoGen.data.data}.${file_type}`;
       fd.append("imgexam", this.imgexam, genName);
 
       const response = await anyactivity.anyactivityNewStudform(fd);
       if (response.data.success) {
         confirm("บันทึกข้อมูลเรียบร้อยแล้วคะ");
-        this.$router.push({
-          name: "loginparent",
-        });
+        // this.$router.push({
+        //   name: "loginparent",
+        // });
       } else {
         confirm("เกิดข้อผิดพลาดกรุณาตรวจสอบใหม่อีกครั้งคะ");
       }
@@ -379,9 +379,9 @@ export default {
   },
 
   watch: {
-    amount: function (val) {
+    foundation_amount: function (val) {
       const temp = val.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      this.amount = temp;
+      this.foundation_amount = temp;
     },
   },
 };

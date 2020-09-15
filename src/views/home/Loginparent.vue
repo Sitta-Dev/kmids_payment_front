@@ -43,10 +43,13 @@
               </v-form>
             </v-card-text>
 
-            <v-card-actions>
-              <v-spacer />
-              <a @click="onClickNewStud()">Link >> For New Students</a>
-            </v-card-actions>
+            <center>
+              <a @click="redirect()">
+                ส่งหลักฐานการโอนเงินสำหรับสมัครสอบ
+                <br />To submit the payslip
+                (click here)
+              </a>
+            </center>
 
             <v-card-actions>
               <v-spacer />
@@ -116,11 +119,17 @@ export default {
         this.error = error.response.data.error;
       }
     },
-    onClickNewStud() {
-      const routeData = this.$router.resolve({
-        name: "paymentCheckNewStud"
-      });
-      window.open(routeData.href, "_blank");
+
+    redirect() {
+      // const routeData = this.$router.resolve({
+      //   name: "paymentCheckNewStud",
+      // });
+      // window.open(routeData.href, "_blank");
+
+      const url =
+        "http://103.233.193.62:8080/kmids/payment/#/paymentCheckNewStud";
+
+      window.open(url, "_blank");
     },
   },
 };
